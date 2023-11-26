@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 require('dotenv').config();
 
-app.use(express.urlencoded( { extended: true } ));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(expressLayouts);
 
@@ -26,7 +26,12 @@ app.use(fileUpload());
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
-const routes = require('./server/routes/recipeRoutes.js')
-app.use('/', routes);
+const recipeRoutes = require('./server/routes/recipeRoutes.js');
+const contactRoutes = require('./server/routes/contactRoutes.js'); // Add this line
+const aboutRoutes = require('./server/routes/aboutRoutes.js'); // Add this line
 
-app.listen(port, ()=> console.log(`Listening to port ${port}`));
+app.use('/', recipeRoutes);
+app.use('/contact', contactRoutes); // Add this line
+app.use('/about', aboutRoutes); // Add this line
+
+app.listen(port, () => console.log(`Listening to port ${port}`));
