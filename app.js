@@ -27,11 +27,11 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 const recipeRoutes = require('./server/routes/recipeRoutes.js');
-const contactRoutes = require('./server/routes/contactRoutes.js'); // Add this line
-const aboutRoutes = require('./server/routes/aboutRoutes.js'); // Add this line
+const contactRoutes = require('./server/routes/contactRoutes.js'); 
+const aboutRoutes = require('./server/routes/aboutRoutes.js'); 
 
 app.use('/', recipeRoutes);
-app.use('/contact', contactRoutes); // Add this line
-app.use('/about', aboutRoutes); // Add this line
+app.use('/contact', contactRoutes); 
+app.use('/about', aboutRoutes); 
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
